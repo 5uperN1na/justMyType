@@ -49,12 +49,18 @@ $(document).ready(function () {
 
     $("#sentence").text(sentenceDisplay);
     $("#target-letter").text(character);
-     
+
 
 
     $(document).keypress(function (e) {
         if (e.which == sentences[arrayIndex].charCodeAt(sentenceCharacter)) {
             console.log('true');
+
+            $("#yellow-block").css("left", "+=17.3px");
+            //next letter
+            sentenceCharacter++;
+            let character = sentenceDisplay.substring(sentenceCharacter, sentenceCharacter + 1);
+            $("#target-letter").text(character);
 
         }
     });
