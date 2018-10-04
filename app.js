@@ -34,11 +34,13 @@ $(document).ready(function () {
     });
 
     let sentences = [
-        "ten ate neite ate nee enet ite ate inet ent eate",
-        "Too ato too nOt enot one totA not anot tOO aNot",
-        "oat itain oat tain nate eate tea anne inant nean",
-        "itant eate anot eat nato inate eat anot tain eat",
-        "nee ene ate ite tent tiet ent ine ene ete ene ate"
+        "hello",
+        "world"
+       // "ten ate neite ate nee enet ite ate inet ent eate",
+       // "Too ato too nOt enot one totA not anot tOO aNot",
+       // "oat itain oat tain nate eate tea anne inant nean",
+       // "itant eate anot eat nato inate eat anot tain eat",
+       // "nee ene ate ite tent tiet ent ine ene ete ene ate"
     ];
 
     let arrayIndex = 0;
@@ -51,18 +53,26 @@ $(document).ready(function () {
     $("#target-letter").text(character);
 
 
-
     $(document).keypress(function (e) {
         if (e.which == sentences[arrayIndex].charCodeAt(sentenceCharacter)) {
             console.log('true');
 
-            $("#yellow-block").css("left", "+=17.3px");
-            //next letter
+            $("#yellow-block").css("left", "+=17px");
+            $('#feedback').append('<div class=\'glyphicon glyphicon-ok\'></div>');
             sentenceCharacter++;
             let character = sentenceDisplay.substring(sentenceCharacter, sentenceCharacter + 1);
             $("#target-letter").text(character);
 
+
+        } else {
+            $('#feedback').append('<div class=\'glyphicon glyphicon-remove\'></div>');
+
         }
+        $("#sentence").text(sentenceDisplay);
+
+
+
+
     });
 
 
